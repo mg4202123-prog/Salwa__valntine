@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Happy Valentine's Day, Salwa ❤️ — عيد حب سعيد يا سلوى</title>
+  <meta name="description" content="A little story about you — حكاية صغيرة عنك">
+  <meta name="theme-color" content="#FFF0F6">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================================================================
+       css/style.css  (inlined)
+       ===================================================================== */
+
+    /* ---------- 1. Tokens ---------- */
+    :root {
+      --baby: #FFF0F6;
+      --blush: #FCE4F0;
+      --lavender: #F3E9FF;
+      --lilac: #EDE4FF;
+      --cream: #FFF6E8;
+      --peach: #FFEAE4;
+      --pale-blue: #EAF5FF;
+      --light-rose: #F9DCEB;
+
+      --ink: #5a3550;
+      --ink-soft: #85607a;
+      --accent: #e0457b;
+      --accent-2: #b46ad8;
+      --gold: #c9964f;
+
+      --font-en-display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+      --font-en-script: "Cormorant Garamond", Georgia, serif;
+      --font-en-ui: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-ar-body: "Amiri", "IBM Plex Sans Arabic", "Cairo", "Noto Naskh Arabic", serif;
+      --font-ar-ui: "IBM Plex Sans Arabic", "Cairo", "Amiri", system-ui, sans-serif;
+    }
+
+    /* ---------- 2. Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; background: var(--baby); }
+    body {
+      font-family: var(--font-en-ui);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+    button:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+    img { max-width: 100%; }
+
+    /* Bilingual stack: English on top, Arabic underneath */
+    .bi { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .1em; }
+    .bi .en { font-family: var(--font-en-ui); line-height: 1.25; }
+    .bi .ar {
+      font-family: var(--font-ar-ui);
+      direction: rtl;
+      unicode-bidi: isolate;
+      line-height: 1.6;
+    }
+
+    /* ---------- 3. Loader ---------- */
+    .loader {
+      position: fixed; inset: 0; z-index: 100;
+      display: grid; place-items: center;
+      background: linear-gradient(160deg, var(--baby), var(--lavender));
+      transition: opacity .8s ease, visibility 0s .8s;
+    }
+    .loader.is-hidden { opacity: 0; visibility: hidden; }
+    .loader-inner { display: grid; gap: 14px; justify-items: center; color: var(--ink-soft); }
+    .loader-heart { font-size: 3rem; animation: heartbeat 1.2s ease-in-out infinite; }
+
+    /* ---------- 4. Scene shell ---------- */
+    .scene {
+      position: fixed; inset: 0; overflow: hidden;
+      opacity: 0; visibility: hidden; transform: scale(1.03);
+      transition: opacity .7s ease, transform .7s ease, visibility 0s .7s;
+    }
+    .scene.is-active {
+      opacity: 1; visibility: visible; transform: none;
+      transition: opacity .8s ease .1s, transform .8s ease .1s, visibility 0s;
+    }
+    .scene-bg { position: absolute; inset: 0; z-index: 0; }
+    .decor { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+    .scene-scroll {
+      position: absolute; inset: 0; z-index: 2;
+      overflow-y: auto; overflow-x: hidden;
+      display: flex;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+    .scene-inner {
+      margin: auto; width: 100%;
+      padding: 84px 16px 130px;
+    }
+    .scene:not(.is-active) .decor *,
+    .scene:not(.is-active) .scene-bg * { animation-play-state: paused !important; }
+
+    /* Floating emoji particles (light: ~10–15 per scene) */
+    .decor .drift {
+      position: absolute; bottom: -50px; left: 0;
+      opacity: 0; will-change: transform, opacity;
+      animation: floatUp linear infinite;
+    }
+    .decor .sparkle {
+      position: absolute; color: #fff; text-shadow: 0 0 8px rgba(255, 190, 220, .95);
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    /* ---------- 5. Shared pieces ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 12px 26px; border-radius: 999px;
+      background: linear-gradient(135deg, #ff7aa8, var(--accent) 55%, #c44fb5);
+      color: #fff; font-weight: 700;
+      box-shadow: 0 10px 24px rgba(224, 69, 123, .32);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(224, 69, 123, .4); }
+    .btn:active { transform: scale(.97); }
+    .btn .ar { font-weight: 600; }
+    .btn--ghost {
+      background: rgba(255, 255, 255, .75); color: var(--accent);
+      box-shadow: 0 6px 18px rgba(180, 106, 216, .18);
+    }
+
+    .eyebrow { color: var(--accent); margin-bottom: 8px; }
+    .eyebrow .en { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; }
+    .eyebrow .ar { font-size: .95rem; }
+
+    .msg-title {
+      font-family: var(--font-ar-body); direction: rtl; unicode-bidi: isolate;
+      font-size: clamp(1.45rem, 4.6vw, 2.05rem); line-height: 1.7; text-align: center;
+      font-weight: 700; color: var(--accent); margin-bottom: 14px;
+    }
+    .msg-p {
+      font-family: var(--font-ar-body); direction: rtl; unicode-bidi: isolate;
+      white-space: pre-wrap; overflow-wrap: anywhere; text-align: right;
+      font-size: clamp(1.15rem, 3.6vw, 1.38rem); line-height: 2.1;
+      margin-bottom: 18px; color: var(--ink);
+    }
+    .msg-sep {
+      font-family: var(--font-en-ui); direction: ltr; white-space: pre; text-align: center;
+      color: var(--accent); opacity: .7; letter-spacing: .1em; overflow: hidden;
+    }
+
+    /* Progressive reveal */
+    .msg-p.pending { display: none; }
+    .msg-p.shown { animation: paragraphIn .8s cubic-bezier(.2, .8, .2, 1) both; }
+    .msg-p .w { opacity: 0; }
+    .msg-p.shown .w { animation: wordIn .6s ease forwards; }
+    .message.is-instant .msg-p, .message.is-instant .msg-p .w { animation: none; opacity: 1; }
+
+    .show-all {
+      display: block; margin: 0 auto 18px; padding: 8px 18px; border-radius: 999px;
+      background: rgba(255, 255, 255, .85); color: var(--accent);
+      border: 1.5px dashed var(--accent); font-weight: 600;
+      transition: transform .2s ease, opacity .4s ease;
+    }
+    .show-all:hover { transform: translateY(-2px); }
+    .show-all.is-gone { display: none; }
+    .show-all .en { font-size: .82rem; }
+    .show-all .ar { font-size: .88rem; }
+
+    /* Photos: natural aspect ratio, never cropped */
+    .photo { margin: 0 auto; width: fit-content; max-width: 100%; position: relative; }
+    .photo img {
+      display: block; width: auto; max-width: 100%; height: auto;
+      max-height: min(62vh, 560px); margin: 0 auto;
+    }
+    .photo-missing {
+      width: min(78vw, 320px); aspect-ratio: 4 / 5;
+      display: grid; place-content: center; justify-items: center; gap: 6px;
+      padding: 18px; text-align: center; color: var(--ink-soft);
+      background: repeating-linear-gradient(135deg, #fff 0 12px, var(--blush) 12px 24px);
+      border: 2px dashed var(--accent); border-radius: 14px;
+    }
+    .photo-missing .icon { font-size: 2.2rem; }
+    .photo-missing .path { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; color: var(--accent); direction: ltr; }
+    .photo-missing .ar { font-size: .9rem; }
+
+    /* ---------- 6. Opening ---------- */
+    .opening .scene-bg {
+      background:
+        radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .9) 0 8%, transparent 30%),
+        radial-gradient(circle at 85% 18%, var(--lilac) 0, transparent 38%),
+        radial-gradient(circle at 78% 85%, var(--peach) 0, transparent 40%),
+        linear-gradient(160deg, var(--baby), var(--blush) 50%, var(--lavender));
+      background-size: 140% 140%; animation: bgShift 18s ease-in-out infinite alternate;
+    }
+    .opening .scene-inner { text-align: center; max-width: 760px; }
+    .hero-heart { font-size: clamp(3.6rem, 14vw, 6rem); display: inline-block; animation: heartbeat 1.6s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(224, 69, 123, .35)); }
+    .hero-title { margin-top: 6px; opacity: 0; animation: riseIn 1s .2s cubic-bezier(.2, .8, .2, 1) forwards; }
+    .hero-title .en {
+      font-family: var(--font-en-display); font-weight: 700; font-size: clamp(2.1rem, 8vw, 4.3rem);
+      line-height: 1.12; background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-title .ar { font-family: var(--font-ar-body); font-weight: 700; font-size: clamp(1.7rem, 6.4vw, 3rem); color: var(--accent); }
+    .hero-sub { margin-top: 22px; opacity: 0; animation: riseIn 1s .6s cubic-bezier(.2, .8, .2, 1) forwards; }
+    .hero-sub .en { font-family: var(--font-en-script); font-style: italic; font-size: clamp(1.35rem, 4.6vw, 2rem); color: var(--ink-soft); }
+    .hero-sub .ar { font-family: var(--font-ar-body); font-size: clamp(1.25rem, 4.4vw, 1.8rem); color: var(--ink-soft); }
+    .start-wrap { margin-top: 34px; opacity: 0; animation: riseIn 1s 1s cubic-bezier(.2, .8, .2, 1) forwards; }
+    .btn--start { padding: 16px 38px; font-size: 1.15rem; position: relative; overflow: hidden; animation: pulseGlow 2.4s ease-in-out infinite; }
+    .btn--start::after {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
+      animation: shimmer 3.2s ease-in-out infinite;
+    }
+    .btn--start .ar { font-size: 1.15rem; }
+    .hint { margin-top: 16px; color: var(--ink-soft); opacity: .85; }
+    .hint .en { font-size: .82rem; }
+    .hint .ar { font-size: .9rem; }
+
+        /* ---------- 7. Scene 1 — Scrapbook open book ---------- */
+    .s1 .scene-bg {
+      background:
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, .28) 0 2px, transparent 2px 7px),
+        linear-gradient(160deg, var(--baby), var(--cream) 55%, var(--blush));
+    }
+    .book {
+      max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr;
+      border-radius: 20px; background: #fffaf4; position: relative;
+      box-shadow: 0 30px 60px rgba(201, 120, 150, .25), 0 0 0 8px rgba(255, 255, 255, .6);
+      animation: riseIn .9s cubic-bezier(.2, .8, .2, 1) both;
+    }
+    .book-page { padding: 26px 20px; position: relative; }
+    .book-page.left {
+      background: linear-gradient(135deg, #fff6ee, #ffeef5);
+      border-radius: 20px 20px 0 0; display: grid; place-items: center; gap: 14px;
+    }
+    .book-page.right { background: #fffdf9; border-radius: 0 0 20px 20px; }
+    .polaroid {
+      background: #fff; padding: 12px; transform: rotate(-2.2deg);
+      box-shadow: 0 14px 28px rgba(120, 70, 100, .22);
+    }
+    .polaroid::before, .polaroid::after {
+      content: ""; position: absolute; width: 84px; height: 24px; z-index: 2;
+      background: rgba(255, 190, 215, .75);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+    }
+    .polaroid::before { top: -10px; left: -22px; transform: rotate(-35deg); }
+    .polaroid::after { bottom: -8px; right: -22px; transform: rotate(-35deg); background: rgba(190, 220, 255, .75); }
+    .sticker { position: absolute; font-size: 2rem; animation: sway 5s ease-in-out infinite; }
+    .sticker.a { top: 14px; right: 18px; }
+    .sticker.b { bottom: 14px; left: 18px; animation-delay: -2s; }
+    .s1 .msg-p {
+      font-size: clamp(1.15rem, 3.6vw, 1.32rem);
+      line-height: 2.3rem; margin-bottom: 2.3rem; padding: 0;
+      background: linear-gradient(transparent calc(2.3rem - 1px), rgba(224, 69, 123, .16) 0) 0 0 / 100% 2.3rem;
+    }
+    .s1 .msg-sep { margin-bottom: 0; }
+    @media (min-width: 880px) {
+      .book { grid-template-columns: 1fr 1.2fr; }
+      .book::before {
+        content: ""; position: absolute; top: 0; bottom: 0; left: 45.4%; width: 34px; z-index: 3; pointer-events: none;
+        background: linear-gradient(90deg, transparent, rgba(190, 120, 150, .18) 50%, transparent);
+      }
+      .book-page { padding: 44px 40px; }
+      .book-page.left { border-radius: 20px 0 0 20px; }
+      .book-page.right { border-radius: 0 20px 20px 0; }
+    }
+
+    /* ---------- 8. Scene 2 — Floating letter ---------- */
+    .s2 .scene-bg {
+      background:
+        radial-gradient(ellipse 220px 70px at 15% 18%, rgba(255, 255, 255, .85), transparent 70%),
+        radial-gradient(ellipse 280px 80px at 82% 30%, rgba(255, 255, 255, .8), transparent 70%),
+        radial-gradient(ellipse 240px 70px at 28% 78%, rgba(255, 255, 255, .7), transparent 70%),
+        linear-gradient(180deg, var(--pale-blue), var(--lavender) 55%, var(--blush));
+    }
+    .letter-stage { max-width: 740px; margin: 0 auto; padding-top: 10px; }
+    .letter-photo {
+      position: relative; z-index: 4; margin: 0 auto -54px; transform: rotate(3deg);
+      border: 9px solid #fff; border-radius: 6px; background: #fff;
+      box-shadow: 0 16px 30px rgba(110, 90, 160, .28);
+      animation: photoDrop 1s .5s cubic-bezier(.2, .9, .3, 1.2) both;
+    }
+    .letter-photo img { max-height: min(46vh, 420px); }
+    .letter-photo .clip { position: absolute; top: -22px; right: 14px; font-size: 2rem; transform: rotate(18deg); z-index: 5; }
+    .letter { position: relative; animation: letterIn 1s cubic-bezier(.2, .8, .2, 1) both, bob 6.5s 1s ease-in-out infinite; }
+    .letter::before {
+      content: ""; position: absolute; inset: -12px -12px -16px; z-index: -1; border-radius: 16px;
+      background: linear-gradient(160deg, #f9d4e6, #e7cdf6);
+      box-shadow: 0 24px 44px rgba(130, 90, 170, .25);
+    }
+    .letter-paper {
+      background: #fffdf8 linear-gradient(180deg, rgba(255, 240, 246, .6), transparent 120px);
+      border-radius: 6px 6px 14px 14px; padding: 76px 22px 30px; position: relative;
+      border-top: 6px solid #fff;
+    }
+    .letter-paper .msg-p { text-align: right; }
+    .letter-seal {
+      position: absolute; left: 50%; bottom: -30px; transform: translateX(-50%);
+      width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+      background: radial-gradient(circle at 35% 30%, #ff8fb4, #d83a74); font-size: 1.4rem;
+      box-shadow: 0 6px 14px rgba(200, 40, 100, .4);
+    }
+    .s2 .scene-inner { padding-bottom: 150px; }
+
+    /* ---------- 9. Scene 3 — Layered memory cards ---------- */
+    .s3 .scene-bg {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(255, 255, 255, .55) 0 38px, transparent 39px),
+        radial-gradient(circle at 88% 70%, rgba(255, 255, 255, .5) 0 60px, transparent 61px),
+        radial-gradient(circle at 70% 10%, rgba(243, 233, 255, .8) 0 90px, transparent 91px),
+        linear-gradient(165deg, var(--peach), var(--blush) 55%, var(--lavender));
+    }
+    .memory { max-width: 1060px; margin: 0 auto; display: grid; gap: 28px; }
+    .memory .message { order: 2; }
+    .photo-stack { order: 1; position: relative; padding: 12px; }
+    .stack-photo {
+      background: #fff; padding: 10px; position: relative; z-index: 2;
+      box-shadow: 0 14px 26px rgba(150, 80, 110, .22); transform: rotate(2deg);
+      animation: riseIn .9s .2s both;
+    }
+    .stack-photo::before, .stack-photo::after {
+      content: ""; position: absolute; inset: 0; z-index: -1; background: var(--lilac);
+      box-shadow: 0 8px 16px rgba(150, 80, 110, .14);
+    }
+    .stack-photo::before { transform: rotate(-5deg) translate(-8px, 6px); background: var(--peach); }
+    .stack-photo::after { transform: rotate(-10deg) translate(-14px, 10px); background: var(--lilac); }
+    .stack-bow { position: absolute; top: -18px; left: -6px; font-size: 2.2rem; z-index: 4; transform: rotate(-14deg); animation: sway 6s ease-in-out infinite; }
+    .s3 .msg-title { background: rgba(255, 255, 255, .75); border-radius: 18px; padding: 8px 14px; box-shadow: 0 6px 14px rgba(150, 80, 110, .12); }
+    .s3 .msg-p {
+      position: relative; padding: 20px 20px 16px; border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(150, 80, 110, .16); margin-bottom: 22px;
+      border: 2px solid rgba(255, 255, 255, .85);
+    }
+    .s3 .msg-p::before { content: "📌"; position: absolute; top: -14px; left: 16px; font-size: 1.2rem; }
+    .s3 .msg-p:nth-of-type(3n + 1) { background: #fff7f0; transform: rotate(-.7deg); }
+    .s3 .msg-p:nth-of-type(3n + 2) { background: #fdf0ff; transform: rotate(.6deg); margin-inline: 10px 0; }
+    .s3 .msg-p:nth-of-type(3n + 3) { background: #eef7ff; transform: rotate(-.4deg); }
+    .s3 .msg-sep { box-shadow: none; background: transparent; border: 0; }
+    .s3 .msg-sep::before { content: none; }
+    @media (min-width: 900px) {
+      .memory { grid-template-columns: 1.5fr 1fr; align-items: start; }
+      .memory .message { order: 1; }
+      .photo-stack { order: 2; position: sticky; top: 24px; }
+    }
+
+    /* ---------- 10. Scene 4 — Warm glowing scene ---------- */
+    .s4 .scene-bg {
+      background:
+        radial-gradient(circle at 50% 38%, #fff4d8 0, rgba(255, 234, 200, .6) 30%, transparent 62%),
+        linear-gradient(170deg, var(--cream), var(--peach) 45%, var(--light-rose));
+    }
+    .s4 .scene-bg::before {
+      content: ""; position: absolute; left: 50%; top: 40%; width: 160vmax; height: 160vmax;
+      margin: -80vmax 0 0 -80vmax; opacity: .55;
+      background: repeating-conic-gradient(from 0deg, rgba(255, 220, 160, .35) 0 8deg, transparent 8deg 24deg);
+      animation: spinSlow 80s linear infinite;
+      -webkit-mask-image: radial-gradient(circle, #000 0, transparent 45%);
+      mask-image: radial-gradient(circle, #000 0, transparent 45%);
+    }
+    .glow-grid { max-width: 1020px; margin: 0 auto; display: grid; gap: 26px; align-items: center; }
+    .glow-card {
+      background: rgba(255, 255, 255, .62); border: 1.5px solid rgba(255, 255, 255, .9);
+      border-radius: 30px; padding: 26px 22px 12px;
+      box-shadow: 0 20px 44px rgba(230, 140, 100, .22), inset 0 0 40px rgba(255, 240, 200, .6);
+    }
+    .s4 .msg-title { color: #d2563a; }
+    .halo { position: relative; display: grid; place-items: center; padding: 18px; }
+    .halo::before {
+      content: ""; position: absolute; inset: 0; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 214, 140, .95) 0, rgba(255, 190, 150, .5) 45%, transparent 70%);
+      animation: haloPulse 4s ease-in-out infinite;
+    }
+    .arch {
+      position: relative; border-radius: 130px 130px 26px 26px; overflow: hidden;
+      border: 8px solid #fff; background: #fff;
+      box-shadow: 0 18px 40px rgba(220, 120, 80, .35), 0 0 0 6px rgba(255, 220, 170, .7);
+    }
+    .s4 .photo { animation: riseIn 1s .3s both; }
+    @media (min-width: 900px) {
+      .glow-grid { grid-template-columns: 1.3fr 1fr; }
+    }
+
+    /* ---------- 11. Scene 5 — Playful & colorful ---------- */
+    .s5 .scene-bg {
+      background:
+        radial-gradient(circle at 15% 25%, #ffd7ea 0, transparent 30%),
+        radial-gradient(circle at 85% 20%, #d8ecff 0, transparent 32%),
+        radial-gradient(circle at 75% 85%, #fff0c8 0, transparent 34%),
+        radial-gradient(circle at 20% 85%, #e4d6ff 0, transparent 34%),
+        linear-gradient(180deg, var(--pale-blue), var(--lavender) 50%, var(--blush));
+    }
+    .playful { max-width: 760px; margin: 0 auto; }
+    .flower-frame {
+      position: relative; margin: 6px auto 34px; width: fit-content; max-width: 100%;
+      padding: 14px; border-radius: 34px; transform: rotate(-2deg);
+      background: linear-gradient(135deg, #ffb3d1, #ffd9a8, #c9f0d2, #b9dcff, #d9b8ff);
+      box-shadow: 0 18px 34px rgba(190, 100, 170, .3);
+      animation: popIn .9s .2s cubic-bezier(.2, .9, .3, 1.3) both;
+    }
+    .flower-frame .photo { border: 6px solid #fff; border-radius: 22px; overflow: hidden; background: #fff; }
+    .flower-frame .photo-missing { border-radius: 16px; }
+    .flower { position: absolute; font-size: 2.1rem; animation: sway 4s ease-in-out infinite; z-index: 3; }
+    .flower.f1 { top: -20px; left: -20px; }
+    .flower.f2 { top: -16px; right: -18px; animation-delay: -1s; }
+    .flower.f3 { bottom: -18px; left: -14px; animation-delay: -2s; }
+    .flower.f4 { bottom: -22px; right: -20px; animation-delay: -3s; }
+    .butterfly { position: absolute; left: -60px; font-size: 2rem; animation: flutter 16s linear infinite; opacity: .95; }
+    .s5 .msg-title {
+      background: linear-gradient(90deg, #e0457b, #b46ad8, #4aa3df);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .s5 .msg-p {
+      padding: 18px 22px; border-radius: 28px 28px 28px 8px; margin-bottom: 20px;
+      box-shadow: 0 8px 16px rgba(160, 100, 170, .18); border: 3px solid #fff;
+    }
+    .s5 .msg-p:nth-of-type(3n + 1) { background: #ffe2ef; }
+    .s5 .msg-p:nth-of-type(3n + 2) { background: #e9e0ff; border-radius: 28px 28px 8px 28px; margin-inline-start: 18px; }
+    .s5 .msg-p:nth-of-type(3n + 3) { background: #def1ff; }
+    .s5 .msg-sep { background: none; border: 0; box-shadow: none; }
+
+        /* ---------- 12. Scene 6 — Elegant personal letter ---------- */
+    .s6 .scene-bg {
+      background:
+        radial-gradient(ellipse at 50% -10%, rgba(255, 255, 255, .95) 0, rgba(255, 246, 232, .6) 35%, transparent 65%),
+        linear-gradient(180deg, var(--cream), var(--baby) 60%, var(--light-rose));
+    }
+    .s6 .scene-bg::before {
+      content: ""; position: absolute; top: 0; left: 50%; width: 120vw; height: 90vh; margin-left: -60vw;
+      background: conic-gradient(from 160deg at 50% 0, transparent 0 8deg, rgba(255, 238, 200, .45) 14deg, transparent 22deg 40deg, rgba(255, 238, 200, .35) 48deg, transparent 56deg);
+      animation: beamSway 12s ease-in-out infinite alternate; transform-origin: 50% 0;
+    }
+    .paper {
+      position: relative; max-width: 760px; margin: 0 auto; padding: 56px 22px 28px;
+      background:
+        repeating-linear-gradient(0deg, rgba(201, 150, 79, .04) 0 1px, transparent 1px 4px),
+        linear-gradient(180deg, #fffdf7, #fff7ec);
+      border-radius: 6px; border: 1px solid rgba(201, 150, 79, .35);
+      box-shadow: 0 0 0 8px #fff, 0 0 0 9px rgba(201, 150, 79, .35), 0 30px 60px rgba(160, 100, 110, .22);
+      animation: riseIn 1s cubic-bezier(.2, .8, .2, 1) both;
+    }
+    .paper::before, .paper::after {
+      content: "❦"; position: absolute; font-size: 1.6rem; color: var(--gold); opacity: .8;
+    }
+    .paper::before { top: 10px; left: 14px; }
+    .paper::after { bottom: 10px; right: 14px; transform: rotate(180deg); }
+    .wax {
+      position: absolute; top: -26px; left: 50%; transform: translateX(-50%);
+      width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 1.5rem;
+      background: radial-gradient(circle at 35% 30%, #f5778f, #b82a50); color: #fff;
+      box-shadow: 0 6px 14px rgba(150, 30, 70, .4), inset 0 0 0 4px rgba(255, 255, 255, .15);
+    }
+    .gold-frame {
+      margin: 6px auto 22px; padding: 8px; width: fit-content; max-width: 100%;
+      background: linear-gradient(135deg, #e9c58c, #fbe7c3 40%, #d4a460 70%, #f3d9a4);
+      box-shadow: 0 10px 22px rgba(160, 110, 50, .3);
+    }
+    .gold-frame .photo { background: #fff; padding: 6px; }
+    .gold-frame .photo img { max-height: min(46vh, 420px); }
+    .s6 .msg-title { font-weight: 700; color: #b0385f; }
+    .s6 .msg-p { font-size: clamp(1.2rem, 3.8vw, 1.42rem); line-height: 2.2; text-align: right; }
+    .s6 .msg-p:first-of-type::first-letter { color: var(--accent); }
+
+    /* ---------- 13. Ending ---------- */
+    .ending .scene-bg {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .8) 0, transparent 30%),
+        radial-gradient(circle at 80% 80%, var(--peach) 0, transparent 40%),
+        linear-gradient(160deg, var(--baby), var(--lavender) 50%, var(--blush));
+      background-size: 140% 140%; animation: bgShift 16s ease-in-out infinite alternate;
+    }
+    .ending .scene-inner { text-align: center; max-width: 720px; }
+    .end-title .en {
+      font-family: var(--font-en-display); font-weight: 700; font-size: clamp(2.6rem, 11vw, 5.4rem);
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .end-sub { margin-top: 12px; }
+    .end-sub .ar { font-family: var(--font-ar-body); font-size: clamp(1.5rem, 5.6vw, 2.4rem); color: var(--accent); font-weight: 700; }
+    .end-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    /* ---------- 14. Persistent UI: music + navigation ---------- */
+    .music {
+      position: fixed; top: calc(10px + env(safe-area-inset-top)); right: 10px; z-index: 60;
+      display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 999px;
+      background: rgba(255, 255, 255, .82); border: 1.5px solid rgba(255, 255, 255, .95);
+      box-shadow: 0 8px 22px rgba(190, 100, 150, .25);
+      transition: transform .2s ease, opacity .3s ease;
+    }
+    .music:hover { transform: translateY(-1px); }
+    .music-icon {
+      width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+      background: linear-gradient(135deg, #ff7aa8, var(--accent-2)); color: #fff; font-size: 1.05rem; flex: none;
+    }
+    .music.is-playing .music-icon { animation: heartbeat 1.4s ease-in-out infinite; }
+    .music .label { align-items: flex-start; }
+    .music .label .en { font-size: .78rem; font-weight: 700; color: var(--ink); }
+    .music .label .ar { font-size: .78rem; color: var(--ink-soft); }
+    .music .song { display: none; font-family: var(--font-ar-ui); font-size: .7rem; color: var(--ink-soft); direction: rtl; }
+    .music.is-unavailable { opacity: .75; }
+    .music.is-unavailable .music-icon { background: #c9b6c4; }
+    @media (min-width: 700px) { .music .song { display: block; } }
+
+    .nav {
+      position: fixed; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom)); transform: translateX(-50%);
+      z-index: 50; display: flex; align-items: center; gap: 10px; padding: 8px;
+      border-radius: 999px; background: rgba(255, 255, 255, .86);
+      border: 1.5px solid rgba(255, 255, 255, .95); box-shadow: 0 10px 28px rgba(190, 100, 150, .28);
+      max-width: calc(100vw - 20px);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .nav.is-hidden { opacity: 0; pointer-events: none; transform: translate(-50%, 30px); }
+    .nav .btn { padding: 8px 18px; box-shadow: none; }
+    .nav .btn .en { font-size: .85rem; }
+    .nav .btn .ar { font-size: .85rem; }
+    .nav .btn[hidden] { display: none; }
+    .nav .btn.is-invisible { visibility: hidden; }
+    .dots { display: flex; gap: 7px; align-items: center; padding: 0 4px; }
+    .dot {
+      width: 11px; height: 11px; border-radius: 99px; background: var(--light-rose);
+      border: 1.5px solid var(--accent); transition: width .3s ease, background .3s ease; padding: 0;
+    }
+    .dot.is-current { width: 26px; background: var(--accent); }
+    .dot.is-read { background: #f4a8c4; }
+
+    .toast {
+      position: fixed; left: 50%; top: calc(70px + env(safe-area-inset-top)); transform: translate(-50%, -20px);
+      z-index: 70; max-width: min(92vw, 440px); padding: 12px 18px; border-radius: 18px;
+      background: #fff; color: var(--ink); border: 1.5px solid var(--accent);
+      box-shadow: 0 12px 28px rgba(190, 100, 150, .3); opacity: 0; pointer-events: none;
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+    .toast .en { font-size: .88rem; }
+    .toast .ar { font-size: .95rem; }
+
+    .burst {
+      position: fixed; inset: 0; z-index: 40; pointer-events: none; display: grid; place-items: center;
+      opacity: 0; font-size: 30vmin; background: radial-gradient(circle, rgba(255, 220, 236, .95) 0, rgba(255, 240, 246, .7) 60%, transparent 80%);
+    }
+    .burst.go { animation: burst .95s ease both; }
+
+    /* ---------- 15. Keyframes ---------- */
+    @keyframes floatUp {
+      0% { transform: translate3d(0, 0, 0) rotate(0); opacity: 0; }
+      10% { opacity: .85; }
+      90% { opacity: .6; }
+      100% { transform: translate3d(var(--dx, 0), -115vh, 0) rotate(var(--rot, 20deg)); opacity: 0; }
+    }
+    @keyframes twinkle { 0%, 100% { opacity: .2; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.2); } }
+    @keyframes heartbeat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.14); } 30% { transform: scale(1); } 45% { transform: scale(1.1); } }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+    @keyframes popIn { from { opacity: 0; transform: scale(.7) rotate(-8deg); } to { opacity: 1; transform: scale(1) rotate(-2deg); } }
+    @keyframes paragraphIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes wordIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes bgShift { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
+    @keyframes pulseGlow { 0%, 100% { box-shadow: 0 10px 24px rgba(224, 69, 123, .32); } 50% { box-shadow: 0 10px 42px rgba(224, 69, 123, .6); } }
+    @keyframes shimmer { 0% { left: -60%; } 55%, 100% { left: 130%; } }
+    @keyframes sway { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+    @keyframes bob { 0%, 100% { transform: translateY(0) rotate(-.4deg); } 50% { transform: translateY(-10px) rotate(.4deg); } }
+    @keyframes letterIn { from { opacity: 0; transform: translateY(80px) rotate(-3deg); } to { opacity: 1; transform: none; } }
+    @keyframes photoDrop { from { opacity: 0; transform: translateY(-60px) rotate(-10deg); } to { opacity: 1; transform: rotate(3deg); } }
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+    @keyframes haloPulse { 0%, 100% { transform: scale(.92); opacity: .8; } 50% { transform: scale(1.08); opacity: 1; } }
+    @keyframes flutter {
+      0% { transform: translate(0, 60vh) rotate(8deg); }
+      25% { transform: translate(30vw, 30vh) rotate(-10deg); }
+      50% { transform: translate(60vw, 55vh) rotate(10deg); }
+      75% { transform: translate(90vw, 20vh) rotate(-8deg); }
+      100% { transform: translate(120vw, 40vh) rotate(8deg); }
+    }
+    @keyframes beamSway { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+    @keyframes burst {
+      0% { opacity: 0; transform: scale(.4); }
+      35% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.5); }
+    }
+
+    /* ---------- 16. Small screens ---------- */
+    @media (max-width: 420px) {
+      .scene-inner { padding-inline: 12px; }
+      .nav { gap: 6px; padding: 6px; }
+      .nav .btn { padding: 7px 12px; }
+      .dot { width: 8px; height: 8px; }
+      .dot.is-current { width: 18px; }
+      .dots { gap: 5px; }
+      .music .label .en, .music .label .ar { font-size: .7rem; }
+    }
+
+    /* ---------- 17. Reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
+      .msg-p .w { opacity: 1 !important; }
+      .hero-title, .hero-sub, .start-wrap { opacity: 1 !important; }
+      .decor .drift { opacity: .45; bottom: auto; top: calc(var(--rest, 50) * 1%); }
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Loader -->
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <div class="loader-inner">
+      <div class="loader-heart" aria-hidden="true">💗</div>
+      <div class="bi"><span class="en">Preparing your story…</span><span class="ar" lang="ar" dir="rtl">جاري تحضير حكايتك…</span></div>
+    </div>
+  </div>
+
+  <!-- Persistent music control -->
+  <button class="music" id="music-toggle" type="button" aria-pressed="false">
+    <span class="music-icon" id="music-icon" aria-hidden="true">♪</span>
+    <span class="bi label" id="music-label">
+      <span class="en">Play music</span>
+      <span class="ar" lang="ar" dir="rtl">شغّلي الموسيقى</span>
+    </span>
+    <span class="song" lang="ar" dir="rtl">ولا عاش ولا كان — توليت (TUL8TE)</span>
+  </button>
+
+  <!-- Single audio element: persists across all scenes -->
+  <audio id="bg-music" src="./audio/wala-asha-wala-kan.mp3" preload="metadata" loop></audio>
+
+  <main id="app">
+    <!-- OPENING -->
+    <section class="scene opening is-active" id="scene-0" aria-label="Opening / البداية">
+      <div class="scene-bg"></div>
+      <div class="decor" aria-hidden="true"></div>
+      <div class="scene-scroll">
+        <div class="scene-inner">
+          <div class="hero-heart" aria-hidden="true">❤️</div>
+          <h1 class="bi hero-title">
+            <span class="en">Happy Valentine's Day, Salwa ❤️</span>
+            <span class="ar" lang="ar" dir="rtl">عيد حب سعيد يا سلوى ❤️</span>
+          </h1>
+          <p class="bi hero-sub">
+            <span class="en">A Little Story About You</span>
+            <span class="ar" lang="ar" dir="rtl">حكاية صغيرة عنك</span>
+          </p>
+          <div class="start-wrap">
+            <button class="btn btn--start" id="start-btn" type="button">
+              <span class="bi"><span class="en">Open Our Story</span><span class="ar" lang="ar" dir="rtl">افتحي حكايتنا</span></span>
+              <span aria-hidden="true">💌</span>
+            </button>
+            <p class="bi hint">
+              <span class="en">Tap to begin — music will start with your touch</span>
+              <span class="ar" lang="ar" dir="rtl">اضغطي للبدء — الموسيقى هتبدأ بلمستك</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story scenes 1–6 are injected here by js/scenes.js section -->
+    <div id="story-anchor" hidden></div>
+
+    <!-- ENDING -->
+    <section class="scene ending" id="scene-7" aria-label="The End / النهاية">
+      <div class="scene-bg"></div>
+      <div class="decor" aria-hidden="true"></div>
+      <div class="scene-scroll">
+        <div class="scene-inner">
+          <div class="hero-heart" aria-hidden="true">💞</div>
+          <h2 class="bi end-title" tabindex="-1">
+            <span class="en">The End? ❤️</span>
+          </h2>
+          <p class="bi end-sub">
+            <span class="ar" lang="ar" dir="rtl">ولا لسه في ذكريات كتير جاية؟ ❤️</span>
+          </p>
+          <div class="end-actions">
+            <button class="btn" id="replay-btn" type="button">
+              <span class="bi"><span class="en">Read Again</span><span class="ar" lang="ar" dir="rtl">اقرئي من جديد</span></span>
+            </button>
+            <button class="btn btn--ghost" id="home-btn" type="button">
+              <span class="bi"><span class="en">Back to the Start</span><span class="ar" lang="ar" dir="rtl">العودة للبداية</span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Navigation -->
+  <nav class="nav is-hidden" id="nav" aria-label="Story navigation / التنقل">
+    <button class="btn btn--ghost" id="prev-btn" type="button">
+      <span class="bi"><span class="en">Back</span><span class="ar" lang="ar" dir="rtl">رجوع</span></span>
+    </button>
+    <div class="dots" id="dots" role="group" aria-label="Chapters / الفصول"></div>
+    <button class="btn" id="next-btn" type="button">
+      <span class="bi"><span class="en">Continue</span><span class="ar" lang="ar" dir="rtl">تابعي</span></span>
+    </button>
+  </nav>
+
+  <div class="burst" id="burst" aria-hidden="true">💗</div>
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <div class="bi"><span class="en" id="toast-en"></span><span class="ar" id="toast-ar" lang="ar" dir="rtl"></span></div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       js/scenes.js  (inlined) — the exact six messages + scene builders
+       ===================================================================== */
+
+    const SEPARATOR = "　　　　　∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼";
+
+    const STORY_SCENES = [
+      {
+        number: 1,
+        layout: "s1",
+        photo: "photo1.jpg",
+        eyebrow: { en: "Chapter One · The Loveliest Chance", ar: "الفصل الأول · أجمل صدفة" },
+        animated: false,
+        title: "الرسالة الأولى — أجمل صدفة في حياتي ❤️",
+        paragraphs: [
+          "بصي ساعات الواحد بيقابل ناس في حياته وميعرفش إنهم هيبقوا مهمين عنده وانتي كنتي اجمل صدفه حصلتلي في حياتي ❤️❤️❤️💓",
+          " اول مرة روحت فيها الشغل ولقيتك هناك أنا كنت مضايق إن بنت هي اللي هتعلمني وكده بس طلعت دي احلي حاجه وإن قمر بالجمال ده هو اللي هيعلمني 💕💕❤️❤️❤️💋",
+          "و لما كنا بنتقابل كل يوم وإحنا رايحين الشغل، كنت ببقى مبسوط أوي  لاني عارف إني هشوفك واني هقعد اتكلم معاكي ❤️❤️❤️❤️💗💗",
+          "ممكن ليكي كانت حاجات عادية، بس نا كنت بروح من الشغل مبسوط بسببك ❤️💕💕💓💓"
+        ],
+        separator: true
+      },
+      {
+        number: 2,
+        layout: "s2",
+        photo: "photo2.jpg",
+        eyebrow: { en: "Chapter Two · A Day I Can't Forget", ar: "الفصل الثاني · يوم لا يُنسى" },
+        animated: true,
+        title: "الرسالة التانية — يوم مستحيل أنساه ❤️",
+        paragraphs: [
+          "فاكره اليوم الي كان ونا طالع من الشارع ولقيتك ف وشي بالصدفه وكنت مبسوط لما شوفتك واتمشينا سوا وقعدنا نتكلم، كنت مبسوط أوي ❤️❤️💋💋💕",
+          "يمكن الموقف بالنسبالك بسيط، بس أنا اليوم ده كان بالنسبالي مميز جدًا، وكل ما أفتكره بفتكر قد إيه كنت مبسوط وإنتي معايا 💗💗"
+        ],
+        separator: true
+      },
+      {
+        number: 3,
+        layout: "s3",
+        photo: "photo3.jpg",
+        eyebrow: { en: "Chapter Three · Missing You", ar: "الفصل الثالث · الاشتياق" },
+        animated: true,
+        title: "الرسالة التالتة — وحشتيني حتى وإنتي بعيدة 💔",
+        paragraphs: [
+          " لما سبتي الشغل بقا وبقينا مش بنتقابل زي الأول؟ الفترة دي كانت صعبة عليا شوية، عشان كنت اتعودت أشوفك كل يوم، وفجأة بقيت مش بشوفك، وحتى كلامنا بقى أقل من الأول 😢",
+          "ولما فجأة مبقتيش تردي عليا افتكرت إنك عملتيلي بلوك ووقتها زعلت جدًا، عشان مكنتش فاهم إيه اللي حصل ولا ليه بقينا بعيد بالشكل ده.",
+          "ولما لقيتك جاي الشغل تاني، كنت فرحان إني شوفتك، بس في نفس الوقت كنت زعلان ومستغرب انك جيتي وعشان كده اتعملت ببرود ومبصتلكيش ولا حتى سلمت عليكي، مع إن الحقيقة انك كنتي وحشاني اوي ❤️❤️❤️💓💗💗"
+        ],
+        separator: true
+      },
+      {
+        number: 4,
+        layout: "s4",
+        photo: "photo4.jpg",
+        eyebrow: { en: "Chapter Four · The Day You Came Back", ar: "الفصل الرابع · يوم العودة" },
+        animated: true,
+        title: "الرسالة الرابعة — اليوم اللي رجعتي فيه ❤️",
+        paragraphs: [
+          "بس بعد ما اتكلمنا واتصالحنا، أنا كنت مبسوط أوي، وحسيت إن كل حاجه رجعت أحسن تاني، ورجعنا نهزر ونتكلم زي الأول ❤️❤️",
+          "ولسه فاكر موضوع رقم تليفونك لما قولتيلي إن موبايلك اتحرق وإنك غيرتي الرقم، وانك جبتي مخصوص عشان تديهوني 💕💕💗💗💋"
+        ],
+        separator: true
+      },
+      {
+        number: 5,
+        layout: "s5",
+        photo: "photo5.jpg",
+        eyebrow: { en: "Chapter Five · The Details I Love", ar: "الفصل الخامس · التفاصيل التي أحبها" },
+        animated: true,
+        title: "الرسالة الخامسة — تفاصيلك اللي بحبها 💗",
+        paragraphs: [
+          "كان في حاجات بحبها اوي اوييييي فيكي يا سلوتي كنت بحب هبلك ودلعك، وطريقتك وإنتي بتهزري معايا، و لما كنتي بتتدلعي عليا في الشات أو لما بنتقابل ❤️❤️💓💓",
+          "واحلي حاجه فيكي هي ضحتك الي كانت بتنورلي حياتي وان ضحكتك هي الي بتنورلي حياتي 😍💕💕",
+          "يمكن دي كلها حاجات بسيطة، بس هي دي الحاجات اللي خلتك مميزة عندي، واللي لسه فاكرها لحد دلوقتي. 💗💗"
+        ],
+        separator: true
+      },
+      {
+        number: 6,
+        layout: "s6",
+        photo: "photo6.jpg",
+        eyebrow: { en: "Chapter Six · Words I Had to Say", ar: "الفصل السادس · كلام كان لازم يُقال" },
+        animated: true,
+        title: "الرسالة السادسة — كلام كان لازم أقوله ❤️",
+        paragraphs: [
+          "بصي يا سلوى، في كلام كتير كان نفسي أقولهولك، وأول حاجة إني عارف إني غلطت في حقك في مواقف كتير، وخصوصًا لما سمعت كلام ناس تانية مكنش المفروض أسمع كلامهم، وقلتلك كلام ضايقك وجرحك.",
+          "أنا مش بقول الكلام ده عشان أبرر لنفسي، ولا عشان أقلل من اللي حصل، أنا بس عايزك تعرفي إني ندمان على الحاجات دي، وإن كان نفسي أكون اتصرفت بشكل أحسن من كده.",
+          "ولما رجعت كلمتك تاني عشان نصلح اللي حصل بينا، كنت مبسوط إننا قدرنا نتكلم ونتصالح، حتى لو علاقتنا مبقتش زي الأول، وحتى لو اتفقنا إننا نفضل أصحاب بس.",
+          "ومش عايز كلامي ده يحسسك إن في ضغط عليكي أو إني مستني منك تغيري قرارك، أنا بس كان نفسي أقولك اللي جوايا وأعتذرلك عن كل حاجة ضايقتك بسببي.",
+          "وفي النهاية، أتمنى من قلبي تكوني دايمًا مبسوطة، وتحققي كل اللي نفسك ❤️"
+        ],
+        separator: false
+      }
+    ];
+
+    /* Decorative emoji per scene (kept intentionally light) */
+    const DECOR_SETS = {
+      opening: ["❤️", "💖", "💗", "🌸", "💕"],
+      s1: ["💕", "🌸", "💌", "💗"],
+      s2: ["☁️", "💗", "✉️", "🤍"],
+      s3: ["🌷", "💖", "🎀", "💕"],
+      s4: ["🧡", "💛", "🌅", "💗"],
+      s5: ["🌸", "🦋", "🌼", "💗", "🌺"],
+      s6: ["🤍", "🌹", "🕊️", "💗"],
+      ending: ["💖", "❤️", "💗", "🌸", "💞"]
+    };
+
+      /* ---------- DOM helpers (textContent only: no unsafe HTML injection) ---------- */
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function bilingual(en, ar, extraClass) {
+      const wrap = el("span", "bi" + (extraClass ? " " + extraClass : ""));
+      wrap.appendChild(el("span", "en", en));
+      const arabic = el("span", "ar", ar);
+      arabic.lang = "ar";
+      arabic.dir = "rtl";
+      wrap.appendChild(arabic);
+      return wrap;
+    }
+
+    function createPhoto(number, extraClass) {
+      const figure = el("figure", "photo " + (extraClass || ""));
+      const path = "./images/photo" + number + ".jpg";
+      const img = new Image();
+      img.alt = "Photo " + number + " / الصورة " + number;
+      img.decoding = "async";
+      img.addEventListener("error", function () {
+        img.remove();
+        figure.classList.add("is-missing");
+        const box = el("div", "photo-missing");
+        box.appendChild(el("span", "icon", "📷"));
+        box.appendChild(bilingual("Photo " + number + " is missing", "الصورة رقم " + number + " غير موجودة"));
+        box.appendChild(el("span", "path", "images/photo" + number + ".jpg"));
+        figure.appendChild(box);
+      });
+      img.src = path;
+      figure.appendChild(img);
+      return figure;
+    }
+
+    /* Word-based fill: keeps Arabic words whole (shaping safe) and keeps every whitespace character */
+    function fillWords(paragraph, text) {
+      let wordCount = 0;
+      text.split(/(\s+)/).forEach(function (token) {
+        if (!token) return;
+        if (/^\s+$/.test(token)) {
+          paragraph.appendChild(document.createTextNode(token));
+        } else {
+          const span = el("span", "w", token);
+          span.style.animationDelay = Math.min(wordCount * 45, 1800) + "ms";
+          paragraph.appendChild(span);
+          wordCount += 1;
+        }
+      });
+      return wordCount;
+    }
+
+    /* Builds the message block; returns the node + items for the reveal controller */
+    function createMessage(data) {
+      const message = el("div", "message");
+      const eyebrow = bilingual(data.eyebrow.en, data.eyebrow.ar, "eyebrow");
+      const title = el("h2", "msg-title", data.title);
+      title.lang = "ar";
+      title.dir = "rtl";
+      title.tabIndex = -1;
+      message.append(eyebrow, title);
+
+      let showAllButton = null;
+      if (data.animated) {
+        showAllButton = el("button", "show-all");
+        showAllButton.type = "button";
+        showAllButton.appendChild(bilingual("Show the whole message", "اعرضي الرسالة كاملة"));
+        message.appendChild(showAllButton);
+      }
+
+      const items = [];
+      data.paragraphs.forEach(function (text) {
+        const p = el("p", "msg-p");
+        p.lang = "ar";
+        p.dir = "rtl";
+        let words = 0;
+        if (data.animated) {
+          words = fillWords(p, text);
+          p.classList.add("pending");
+        } else {
+          p.textContent = text;
+        }
+        message.appendChild(p);
+        items.push({ node: p, words: words, isSeparator: false });
+      });
+
+      if (data.separator) {
+        const sep = el("p", "msg-sep", SEPARATOR);
+        sep.setAttribute("aria-hidden", "true");
+        if (data.animated) sep.classList.add("pending");
+        message.appendChild(sep);
+        items.push({ node: sep, words: 0, isSeparator: true });
+      }
+
+      return { message: message, title: title, items: items, showAllButton: showAllButton };
+    }
+
+    /* ---------- Layout builders: each scene has its own composition ---------- */
+    const LAYOUTS = {
+      // Scene 1 — scrapbook / open book (photo left, message right on desktop)
+      s1: function (data, msg) {
+        const book = el("div", "book");
+        const left = el("div", "book-page left");
+        const polaroid = createPhoto(data.number, "polaroid");
+        left.append(polaroid, el("span", "sticker a", "🌸"), el("span", "sticker b", "✨"));
+        const right = el("div", "book-page right");
+        right.appendChild(msg.message);
+        book.append(left, right);
+        return book;
+      },
+      // Scene 2 — floating letter with the photo pinned on top
+      s2: function (data, msg) {
+        const stage = el("div", "letter-stage");
+        const photo = createPhoto(data.number, "letter-photo");
+        photo.appendChild(el("span", "clip", "📎"));
+        const letter = el("div", "letter");
+        const paper = el("div", "letter-paper");
+        paper.appendChild(msg.message);
+        paper.appendChild(el("span", "letter-seal", "💗"));
+        letter.appendChild(paper);
+        stage.append(photo, letter);
+        return stage;
+      },
+      // Scene 3 — layered cards with a stacked photo
+      s3: function (data, msg) {
+        const memory = el("div", "memory");
+        const stack = el("div", "photo-stack");
+        const photo = createPhoto(data.number, "stack-photo");
+        stack.append(photo, el("span", "stack-bow", "🎀"));
+        memory.append(msg.message, stack);
+        return memory;
+      },
+      // Scene 4 — warm glow, arch frame with halo
+      s4: function (data, msg) {
+        const grid = el("div", "glow-grid");
+        const card = el("div", "glow-card");
+        card.appendChild(msg.message);
+        const halo = el("div", "halo");
+        const arch = el("div", "arch");
+        arch.appendChild(createPhoto(data.number, ""));
+        halo.appendChild(arch);
+        grid.append(card, halo);
+        return grid;
+      },
+      // Scene 5 — playful flower frame, colourful bubbles, butterflies
+      s5: function (data, msg) {
+        const wrap = el("div", "playful");
+        const frame = el("div", "flower-frame");
+        frame.appendChild(createPhoto(data.number, ""));
+        ["🌸:f1", "🌼:f2", "🌷:f3", "🌺:f4"].forEach(function (pair) {
+          const parts = pair.split(":");
+          frame.appendChild(el("span", "flower " + parts[1], parts[0]));
+        });
+        wrap.append(frame, msg.message);
+        return wrap;
+      },
+      // Scene 6 — elegant paper letter with gold-framed photo
+      s6: function (data, msg) {
+        const paper = el("article", "paper");
+        paper.appendChild(el("span", "wax", "❤️"));
+        const frame = el("div", "gold-frame");
+        frame.appendChild(createPhoto(data.number, ""));
+        paper.append(frame, msg.message);
+        return paper;
+      }
+    };
+
+    function buildStoryScene(data) {
+      const section = el("section", "scene " + data.layout);
+      section.id = "scene-" + data.number;
+      section.setAttribute("aria-label", "Message " + data.number + " / الرسالة " + data.number);
+      section.appendChild(el("div", "scene-bg"));
+      const decor = el("div", "decor");
+      decor.setAttribute("aria-hidden", "true");
+      section.appendChild(decor);
+
+      const scroll = el("div", "scene-scroll");
+      const inner = el("div", "scene-inner");
+      const msg = createMessage(data);
+      inner.appendChild(LAYOUTS[data.layout](data, msg));
+      scroll.appendChild(inner);
+      section.appendChild(scroll);
+
+      if (data.layout === "s5") {
+        ["🦋", "🦋", "🦋"].forEach(function (b, i) {
+          const butterfly = el("span", "butterfly", b);
+          butterfly.style.animationDelay = (-i * 5.3) + "s";
+          butterfly.style.animationDuration = (14 + i * 3) + "s";
+          butterfly.style.top = (i * 12) + "%";
+          decor.appendChild(butterfly);
+        });
+      }
+      return { section: section, msg: msg };
+    }
+
+        /* =====================================================================
+       js/animations.js  (inlined) — decor, reveal controller, transitions
+       ===================================================================== */
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function addDrifters(section, symbols, count) {
+      const decor = section.querySelector(".decor");
+      if (!decor) return;
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < count; i += 1) {
+        const item = el("span", "drift", symbols[i % symbols.length]);
+        const duration = 13 + Math.random() * 12;
+        item.style.left = (Math.random() * 96).toFixed(1) + "%";
+        item.style.fontSize = (14 + Math.random() * 20).toFixed(0) + "px";
+        item.style.animationDuration = duration.toFixed(1) + "s";
+        item.style.animationDelay = (-Math.random() * duration).toFixed(1) + "s";
+        item.style.setProperty("--dx", ((Math.random() - 0.5) * 120).toFixed(0) + "px");
+        item.style.setProperty("--rot", ((Math.random() - 0.5) * 70).toFixed(0) + "deg");
+        item.style.setProperty("--rest", (Math.random() * 90).toFixed(0));
+        fragment.appendChild(item);
+      }
+      decor.appendChild(fragment);
+    }
+
+    function addSparkles(section, count) {
+      const decor = section.querySelector(".decor");
+      if (!decor) return;
+      for (let i = 0; i < count; i += 1) {
+        const sparkle = el("span", "sparkle", i % 2 ? "✦" : "✧");
+        sparkle.style.left = (Math.random() * 95).toFixed(0) + "%";
+        sparkle.style.top = (Math.random() * 90).toFixed(0) + "%";
+        sparkle.style.fontSize = (10 + Math.random() * 14).toFixed(0) + "px";
+        sparkle.style.animationDelay = (-Math.random() * 3).toFixed(1) + "s";
+        sparkle.style.animationDuration = (2.4 + Math.random() * 2).toFixed(1) + "s";
+        decor.appendChild(sparkle);
+      }
+    }
+
+    /* Progressive paragraph reveal controller (one per animated scene) */
+    function createRevealController(msg) {
+      const controller = {
+        items: msg.items,
+        index: 0,
+        timer: null,
+        visited: false,
+        finished: false
+      };
+
+      function reveal(item, scrollIntoView) {
+        item.node.classList.remove("pending");
+        item.node.classList.add("shown");
+        if (scrollIntoView) {
+          item.node.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
+        }
+      }
+
+      function finish() {
+        controller.finished = true;
+        window.clearTimeout(controller.timer);
+        if (msg.showAllButton) msg.showAllButton.classList.add("is-gone");
+      }
+
+      function revealNext() {
+        if (controller.index >= controller.items.length) { finish(); return; }
+        const item = controller.items[controller.index];
+        reveal(item, controller.index > 0);
+        controller.index += 1;
+        while (controller.index < controller.items.length && controller.items[controller.index].isSeparator) {
+          reveal(controller.items[controller.index], false);
+          controller.index += 1;
+        }
+        if (controller.index >= controller.items.length) { finish(); return; }
+        const readingTime = Math.min(1800 + item.words * 90, 6500);
+        controller.timer = window.setTimeout(revealNext, readingTime);
+      }
+
+      controller.revealAll = function (instant) {
+        window.clearTimeout(controller.timer);
+        if (instant) msg.message.classList.add("is-instant");
+        while (controller.index < controller.items.length) {
+          reveal(controller.items[controller.index], false);
+          controller.index += 1;
+        }
+        finish();
+      };
+
+      controller.start = function () {
+        if (controller.finished) return;
+        if (prefersReducedMotion || controller.visited) { controller.revealAll(true); return; }
+        window.clearTimeout(controller.timer);
+        controller.timer = window.setTimeout(revealNext, 700);
+      };
+
+      controller.stop = function () {
+        window.clearTimeout(controller.timer);
+        controller.visited = true;
+      };
+
+      if (msg.showAllButton) {
+        msg.showAllButton.addEventListener("click", function () { controller.revealAll(false); });
+      }
+      return controller;
+    }
+
+    /* =====================================================================
+       js/main.js  (inlined) — app state, audio, navigation
+       ===================================================================== */
+    (function () {
+      "use strict";
+
+      const MUSIC_PATH = "wala-asha-wala-kan.mp3";
+      const audio = document.getElementById("bg-music");
+      const musicButton = document.getElementById("music-toggle");
+      const musicIcon = document.getElementById("music-icon");
+      const musicLabel = document.getElementById("music-label");
+      const nav = document.getElementById("nav");
+      const prevButton = document.getElementById("prev-btn");
+      const nextButton = document.getElementById("next-btn");
+      const dotsWrap = document.getElementById("dots");
+      const burst = document.getElementById("burst");
+      const toast = document.getElementById("toast");
+      const toastEn = document.getElementById("toast-en");
+      const toastAr = document.getElementById("toast-ar");
+      const loader = document.getElementById("loader");
+
+      let audioUnavailable = false;
+      let toastTimer = null;
+      let current = 0;
+      let locked = false;
+      const controllers = {};
+
+      /* ----- Build the six story scenes and insert them before the ending ----- */
+      const ending = document.getElementById("scene-7");
+      STORY_SCENES.forEach(function (data) {
+        const built = buildStoryScene(data);
+        ending.before(built.section);
+        if (data.animated) controllers[data.number] = createRevealController(built.msg);
+      });
+
+      const sections = Array.prototype.slice.call(document.querySelectorAll(".scene"));
+      const lastIndex = sections.length - 1;
+
+      /* ----- Decor ----- */
+      const driftCount = window.innerWidth < 700 ? 9 : 14;
+      sections.forEach(function (section) {
+        const key = section.classList.contains("opening") ? "opening"
+          : section.classList.contains("ending") ? "ending"
+          : STORY_SCENES[Number(section.id.replace("scene-", "")) - 1].layout;
+        addDrifters(section, DECOR_SETS[key], key === "ending" ? driftCount + 4 : driftCount);
+        if (key === "opening" || key === "ending" || key === "s4") addSparkles(section, window.innerWidth < 700 ? 6 : 10);
+      });
+
+      sections.forEach(function (section, i) {
+        if (i !== 0) section.setAttribute("inert", "");
+      });
+
+      /* ----- Dots ----- */
+      const dotButtons = [];
+      STORY_SCENES.forEach(function (data, i) {
+        const dot = el("button", "dot");
+        dot.type = "button";
+        dot.setAttribute("aria-label", "Message " + data.number + " / الرسالة " + data.number);
+        dot.addEventListener("click", function () { goTo(i + 1); });
+        dotsWrap.appendChild(dot);
+        dotButtons.push(dot);
+      });
+
+      /* ----- Toast ----- */
+      function showToast(en, ar) {
+        toastEn.textContent = en;
+        toastAr.textContent = ar;
+        toast.classList.add("is-visible");
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(function () { toast.classList.remove("is-visible"); }, 6000);
+      }
+
+      /* ----- Audio ----- */
+      function setMusicUi(isPlaying) {
+        musicButton.classList.toggle("is-playing", isPlaying);
+        musicButton.setAttribute("aria-pressed", String(isPlaying));
+        musicIcon.textContent = isPlaying ? "❚❚" : "♪";
+        musicLabel.replaceChildren(
+          el("span", "en", isPlaying ? "Pause music" : "Play music"),
+          (function () {
+            const ar = el("span", "ar", isPlaying ? "أوقفي الموسيقى" : "شغّلي الموسيقى");
+            ar.lang = "ar";
+            ar.dir = "rtl";
+            return ar;
+          })()
+        );
+      }
+
+      function markAudioUnavailable() {
+        audioUnavailable = true;
+        musicButton.classList.add("is-unavailable");
+        setMusicUi(false);
+      }
+
+      function announceAudioProblem() {
+        showToast(
+          "The song could not be loaded. Please add audio/wala-asha-wala-kan.mp3",
+          "تعذّر تحميل الأغنية. من فضلك ضعي الملف audio/wala-asha-wala-kan.mp3"
+        );
+      }
+
+          function playMusic() {
+        if (audioUnavailable) { announceAudioProblem(); return; }
+        const attempt = audio.play();
+        if (attempt && typeof attempt.catch === "function") {
+          attempt.catch(function () {
+            if (audio.error || audioUnavailable) {
+              markAudioUnavailable();
+              announceAudioProblem();
+            } else {
+              showToast("Tap the music button to start the song", "اضغطي على زر الموسيقى لتشغيل الأغنية");
+            }
+          });
+        }
+      }
+
+      audio.addEventListener("error", markAudioUnavailable);
+      audio.addEventListener("play", function () { setMusicUi(true); });
+      audio.addEventListener("pause", function () { setMusicUi(false); });
+      audio.addEventListener("canplay", function () {
+        audioUnavailable = false;
+        musicButton.classList.remove("is-unavailable");
+      });
+
+      musicButton.addEventListener("click", function () {
+        if (audio.paused) playMusic(); else audio.pause();
+      });
+
+      /* ----- Navigation ----- */
+      function updateNav() {
+        const isOpening = current === 0;
+        nav.classList.toggle("is-hidden", isOpening);
+        prevButton.classList.toggle("is-invisible", isOpening);
+        nextButton.hidden = current === lastIndex;
+        dotButtons.forEach(function (dot, i) {
+          dot.classList.toggle("is-current", i + 1 === current);
+          dot.classList.toggle("is-read", i + 1 < current);
+          if (i + 1 === current) dot.setAttribute("aria-current", "step"); else dot.removeAttribute("aria-current");
+        });
+      }
+
+      function goTo(target) {
+        if (locked || target === current || target < 0 || target > lastIndex) return;
+        locked = true;
+
+        burst.classList.remove("go");
+        void burst.offsetWidth;
+        burst.classList.add("go");
+
+        window.setTimeout(function () {
+          const leaving = sections[current];
+          if (controllers[current]) controllers[current].stop();
+          leaving.classList.remove("is-active");
+          leaving.setAttribute("inert", "");
+
+          current = target;
+          const entering = sections[current];
+          entering.removeAttribute("inert");
+          entering.querySelector(".scene-scroll").scrollTop = 0;
+          entering.classList.add("is-active");
+          updateNav();
+
+          if (controllers[current]) controllers[current].start();
+          const heading = entering.querySelector(".msg-title, .end-title");
+          if (heading) heading.focus({ preventScroll: true });
+        }, prefersReducedMotion ? 0 : 320);
+
+        window.setTimeout(function () { locked = false; }, prefersReducedMotion ? 50 : 750);
+      }
+
+      prevButton.addEventListener("click", function () { goTo(current - 1); });
+      nextButton.addEventListener("click", function () { goTo(current + 1); });
+
+      document.getElementById("start-btn").addEventListener("click", function () {
+        playMusic();                // started only by this user gesture
+        goTo(1);
+      });
+      document.getElementById("replay-btn").addEventListener("click", function () { goTo(1); });
+      document.getElementById("home-btn").addEventListener("click", function () { goTo(0); });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.target && event.target.tagName === "BUTTON" && (event.key === "Enter" || event.key === " ")) return;
+        if (current === 0) return;
+        if (event.key === "ArrowRight") goTo(current + 1);
+        if (event.key === "ArrowLeft") goTo(current - 1);
+      });
+
+      /* ----- Loader ----- */
+      function hideLoader() {
+        window.setTimeout(function () { loader.classList.add("is-hidden"); }, 900);
+      }
+      if (document.readyState === "complete") hideLoader();
+      else window.addEventListener("load", hideLoader);
+      window.setTimeout(function () { loader.classList.add("is-hidden"); }, 4000);
+
+      updateNav();
+      setMusicUi(false);
+      void MUSIC_PATH;
+    })();
+  </script>
+</body>
+</html>
